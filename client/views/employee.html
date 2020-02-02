@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Blueprint Job Platform</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1 tabindex="1" style="font-family: 'Montserrat', sans-serif; font-weight: 700">Voice Call</h1>
+  </div>
+  <div>
+    <h1 tabindex="2" style="font-family: 'Montserrat', sans-serif; background:#e9ecef;">Employee Side</h1>
+  </div>
+  <div style="margin-left:480px;">
+  <ul tabindex="3" class="list-group list-group-horizontal-sm">
+    <li class="list-group-item">Applicant Number: <span id="applicant-name">123456789<span></li>
+    <li class="list-group-item">Education: <span id="education">undergraduate<span></li>
+  </ul>
+</div>
+  <br>
+  <button  tabindex="4" type="button" class="btn btn-outline-success" tabindex="4">Connect/Disconnect</button>
+  <button  tabindex="5" type="button" class="btn btn-success" tabindex="5">Mute</button>
+  <br>
+  <br>
+  <hr />
+  <div>
+    <h1  tabindex="6" style="font-family: 'Montserrat', sans-serif; background:#e9ecef;">Employer Side</h1>
+  </div>
+  <div style="margin-left:380px;">
+
+  <ul tabindex="7"  class="list-group list-group-horizontal-sm">
+  <li class="list-group-item">Name: <span id="employer-name">River<span></li>
+  <li class="list-group-item">Company: <span id="company">Google<span></li>
+  <li class="list-group-item">Salary: <span id="salary">$7000<span></li>
+  <li class="list-group-item">Job Position: <span id="job-position">Human Resources<span></li>
+  </ul>
+    </div>
+  <br>
+  <button  tabindex="8" type="button" class="btn btn-outline-success">Connect/Disconnect</button>
+  <button  tabindex="9" type="button" class="btn btn-success">Mute</button>
+  <br>
+  <br>
+<p><a  tabindex="10" class="btn btn-secondary" href="index.html" role="button">Return &raquo;</a></p>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $.ajax({
+        url: "http://134.190.148.51:5555",
+        success: function(result) {
+          console.log(result);
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
