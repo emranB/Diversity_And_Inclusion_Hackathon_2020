@@ -6,7 +6,7 @@ var MSG_TO_SEND = "";
 
 var synth = window.speechSynthesis;
 var inputForm = document.querySelector('form');
-var inputTxt = document.querySelector('.txt');
+var inputTxt = {};
 
 var voiceSelect = document.querySelector('#voice-select');
 
@@ -52,6 +52,7 @@ function speak(){
         console.error('speechSynthesis.speaking');
         return;
     }
+    console.log(inputTxt);
     if (inputTxt.value !== '') {
     var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
     utterThis.onend = function (event) {
@@ -67,14 +68,14 @@ function speak(){
         break;
       }
     }
-    utterThis.pitch = pitch.value;
-    utterThis.rate = rate.value;
+    utterThis.pitch = 1;
+    utterThis.rate = 1;
     synth.speak(utterThis);
   }
 }
   
 pitchValue.onchange = function() {
-  pitchValue.textContent = pitch.value;
+  pitchValue.textContent = pitchValue;
 }
 
 voiceSelect.onchange = function(){
@@ -107,7 +108,11 @@ function testSpeech() {
   
     recognition.onresult = function(event) {
       var speechResult = event.results[0][0].transcript.toLowerCase();
+      console.log(speechResult);
       if (speechResult != "") {
+        inputTxt.value = speechResult;
+        speak();
+
         $("#test").append("<p>" + speechResult + "</p>");
         MSG_TO_SEND = speechResult;
         var msg = {

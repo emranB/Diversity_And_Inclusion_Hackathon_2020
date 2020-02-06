@@ -29,14 +29,21 @@ app.all('/', function (req, res) {
 
 
 
+app.listen(port, ip, function (req, res) {
+    console.log("Listening to port: " + port);
+});
 
 
 
+
+
+
+var ipRemote = "134.190.186.126";
 
 // Create an osc.js UDP Port listening on port 57121.
 var udpPort = new osc.UDPPort({
     localAddress: "0.0.0.0",
-    localPort: 20001,
+    localPort: 5555,
     metadata: true
 });
  
@@ -56,37 +63,11 @@ udpPort.open();
 
 app.post("/api/sendClientMsg", urlencodedparser, (req, res) => {
     console.log(req.body);
-    // When the port is read, send an OSC message to, say, SuperCollider
-    udpPort.on("ready", function () {
-        udpPort.send({
-            address: "/s_new",
-            args: [
-                {
-                    type: "s",
-                    value: "default"
-                },
-                {
-                    type: "i",
-                    value: 100
-                },
-                {
-                    type: "s",
-                    value: req.body
-                }
-            ]
-        }, "0.0.0.0", 20000);
-    });
 });
 
 
 
 
-
-
-
-app.listen(port, ip, function (req, res) {
-    console.log("Listening to port: " + port);
-});
 
 
  
